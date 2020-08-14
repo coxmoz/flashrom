@@ -30,7 +30,7 @@ INSTALL = install
 DIFF    = diff
 PREFIX  ?= /usr/local
 MANDIR  ?= $(PREFIX)/share/man
-CFLAGS  ?= -Os -Wall -Wextra -Wno-unused-parameter -Wshadow -Wmissing-prototypes -Wwrite-strings
+CFLAGS  ?= -Os -Wall -Wextra -Wno-unused-parameter -Wshadow -Wmissing-prototypes -Wwrite-strings -std=c99 -D_SVID_SOURCE
 EXPORTDIR ?= .
 RANLIB  ?= ranlib
 PKG_CONFIG ?= pkg-config
@@ -56,7 +56,7 @@ CONFIG_DEFAULT_PROGRAMMER_ARGS ?= ''
 
 # If your compiler spits out excessive warnings, run make WARNERROR=no
 # You shouldn't have to change this flag.
-WARNERROR ?= yes
+WARNERROR ?= no
 
 ifeq ($(WARNERROR), yes)
 CFLAGS += -Werror

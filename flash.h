@@ -151,17 +151,18 @@ enum test_state {
 	NA,	/* Not applicable (e.g. write support on ROM chips) */
 };
 
-#define TEST_UNTESTED	(struct tested){ .probe = NT, .read = NT, .erase = NT, .write = NT }
+//#define TEST_UNTESTED	(struct tested){ .probe = NT, .read = NT, .erase = NT, .write = NT }
+#define TEST_UNTESTED   {  .probe = NT, .read = NT, .erase = NT, .write = NT }
 
-#define TEST_OK_PROBE	(struct tested){ .probe = OK, .read = NT, .erase = NT, .write = NT }
-#define TEST_OK_PR	(struct tested){ .probe = OK, .read = OK, .erase = NT, .write = NT }
-#define TEST_OK_PRE	(struct tested){ .probe = OK, .read = OK, .erase = OK, .write = NT }
-#define TEST_OK_PREW	(struct tested){ .probe = OK, .read = OK, .erase = OK, .write = OK }
+#define TEST_OK_PROBE	{ .probe = OK, .read = NT, .erase = NT, .write = NT }
+#define TEST_OK_PR	{ .probe = OK, .read = OK, .erase = NT, .write = NT }
+#define TEST_OK_PRE	{ .probe = OK, .read = OK, .erase = OK, .write = NT }
+#define TEST_OK_PREW	{ .probe = OK, .read = OK, .erase = OK, .write = OK }
 
-#define TEST_BAD_PROBE	(struct tested){ .probe = BAD, .read = NT, .erase = NT, .write = NT }
-#define TEST_BAD_PR	(struct tested){ .probe = BAD, .read = BAD, .erase = NT, .write = NT }
-#define TEST_BAD_PRE	(struct tested){ .probe = BAD, .read = BAD, .erase = BAD, .write = NT }
-#define TEST_BAD_PREW	(struct tested){ .probe = BAD, .read = BAD, .erase = BAD, .write = BAD }
+#define TEST_BAD_PROBE	{ .probe = BAD, .read = NT, .erase = NT, .write = NT }
+#define TEST_BAD_PR	{ .probe = BAD, .read = BAD, .erase = NT, .write = NT }
+#define TEST_BAD_PRE	{ .probe = BAD, .read = BAD, .erase = BAD, .write = NT }
+#define TEST_BAD_PREW	{ .probe = BAD, .read = BAD, .erase = BAD, .write = BAD }
 
 struct flashrom_flashctx;
 #define flashctx flashrom_flashctx /* TODO: Agree on a name and convert all occurences. */
